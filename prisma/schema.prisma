@@ -6,3 +6,105 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+// Member tables
+enum MemberType {
+  MEMBER
+  STUDENT_MEMBER
+  SKIPPER
+  BOARD
+}
+
+model Member {
+  id       String @id @default(cuid())
+  spond_id String @unique
+
+  firstName String
+  lastName  String
+
+  email    String
+  phone    String
+  password String
+
+  membershipValidTill DateTime
+  memberType          MemberType
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  organiserOf   Event[]
+  registrations Registration[]
+}
+
+// Event tables
+model Boat {
+  id String @id @default(cuid())
+
+  name     String
+  location String
+
+  events Event[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum EventType {
+  MEMBER_SAILING
+  SKIPPER_TRAINING
+  TRIP
+  OTHER
+}
+
+model Event {
+  id       String @id @default(cuid())
+  spond_id String
+
+  title       String
+  description String
+  type        EventType
+  boats       Boat[]
+
+  organiser   Member @relation(fields: [organiserId], references: [id])
+  organiserId String
+
+  start DateTime
+  end   DateTime
+
+  registrationEnabled Boolean
+  maxParticipants     Int
+  registrations       Registration[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Registration {
+  id String @id @default(cuid())
+
+  member   Member @relation(fields: [memberId], references: [id])
+  memberId String
+
+  event   Event  @relation(fields: [eventId], references: [id])
+  eventId String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// Custom pages
+model Page {
+  id   String @id @default(cuid())
+  slug String @unique
+
+  title   String
+  content String
+}
+
+model PageBlob {
+  id String @id @default(cuid())
+
+  blob     Bytes
+  fileType String
+  fileName String
+}
