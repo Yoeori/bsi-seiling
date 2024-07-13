@@ -1,0 +1,32 @@
+.shell {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.header {
+  height: 80px;
+  width: 100%;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 20px;
+}
+
+.container {
+  flex-grow: 1;
+}
+
+[data-mantine-color-scheme="dark"] {
+  & .logo {
+    filter: invert(1);
+  }
+
+  & .header {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+
+  }
+}

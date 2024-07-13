@@ -1,11 +1,19 @@
 import '@mantine/core/styles.css';
+import { Inter } from 'next/font/google'
 
 import { ColorSchemeScript, MantineProvider } from '@mantine/core';
+import AppShell from '@/components/AppShell/AppShell';
 
 export const metadata = {
   title: 'BSI Seiling',
   description: 'Sailing association for adults since 1977',
 };
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+})
+
 
 export default function RootLayout({
   children,
@@ -15,10 +23,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <ColorSchemeScript />
+        <ColorSchemeScript defaultColorScheme="auto" />
       </head>
-      <body>
-        <MantineProvider>{children}</MantineProvider>
+      <body className={inter.className}>
+        <MantineProvider defaultColorScheme="auto">
+          <AppShell>
+            {children}
+          </AppShell>
+        </MantineProvider>
       </body>
     </html>
   );
