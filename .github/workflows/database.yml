@@ -1,8 +1,8 @@
 name: Deploy database
 on:
   push:
-    # paths:
-    #   - prisma/migrations/** 
+    paths:
+      - prisma/migrations/** 
     branches:
       - main
 
