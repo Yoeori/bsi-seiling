@@ -7,7 +7,7 @@
 .header {
   height: 80px;
   width: 100%;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
+  border-bottom: 1px solid var(--mantine-color-gray-1);
 
   display: flex;
   justify-content: space-between;
@@ -18,15 +18,11 @@
 
 .container {
   flex: 1;
+  padding-bottom: 16px;
 }
 
 [data-mantine-color-scheme="dark"] {
   & .logo {
     filter: invert(1);
-  }
-
-  & .header {
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-
   }
 }

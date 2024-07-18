@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 
 import { ColorSchemeScript, MantineProvider } from '@mantine/core';
 import AppShell from '@/components/AppShell/AppShell';
+import { theme } from '@/theme';
 
 export const metadata = {
   title: 'BSI Seiling',
@@ -26,7 +27,7 @@ export default function RootLayout({
         <ColorSchemeScript defaultColorScheme="auto" />
       </head>
       <body className={inter.className}>
-        <MantineProvider defaultColorScheme="auto">
+        <MantineProvider theme={theme} defaultColorScheme="auto">
           <AppShell>
             {children}
           </AppShell>
