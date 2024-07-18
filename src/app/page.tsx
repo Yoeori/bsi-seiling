@@ -5,7 +5,7 @@ import { Container } from "@mantine/core";
 
 export default function Home() {
   return <>
-    <ImageHeader src="/images/sailing.jpg" alt="Sailing boat" />
+    <ImageHeader src="/images/headers/sailing.jpg" alt="Sailing boat" />
     <Container>
       <h1>BSI Seiling</h1>
       <p>
