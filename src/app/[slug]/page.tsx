@@ -6,12 +6,16 @@ import { notFound } from "next/navigation";
 
 const IMAGES = [
   {
-    src: "/images/ran-trip.webp",
+    src: "/images/headers/ran-trip.webp",
     alt: "View from the RAN cabin",
   },
   {
-    src: "/images/sailing.jpg",
+    src: "/images/headers/sailing.jpg",
     alt: "Schmelnick sailing in the fjord",
+  },
+  {
+    src: "/images/headers/header-1.jpg",
+    alt: "Schmelnick with the city in the background",
   },
 ];
 
@@ -28,7 +32,7 @@ export default async function Page({ params: { slug } }: PageProps) {
     notFound();
   }
 
-  const img = IMAGES[1]; // TODO
+  const img = IMAGES[page.slug.length % IMAGES.length];
 
   return <>
     <ImageHeader {...img} tiny />
