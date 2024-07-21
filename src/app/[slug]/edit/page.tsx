@@ -10,6 +10,10 @@ interface PageProps {
 };
 
 export default async function Page({ params: { slug } }: PageProps) {
+  if (process.env.NODE_ENV !== "development") {
+    notFound();
+  }
+
   const page = await getPageBySlug(slug);
 
   if (!page) {
