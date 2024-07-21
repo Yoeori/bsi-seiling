@@ -1,0 +1,39 @@
+.day {
+  background-color: var(--event-background);
+  
+  .day-information {
+    margin: 5px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  grid-template-rows: subgrid;
+}
+
+.text-month {
+  font-weight: bold;
+  margin-right: 4px;
+}
+
+.text-day {
+  text-align: center;
+  min-width: 25px;
+  border-radius: 50%;
+}
+
+.day[data-disabled="true"] {
+  color: var(--mantine-color-gray-6);
+}
+
+.day:hover .text-day {
+  background-color: var(--event-border-color);
+}
+
+.text-day[data-today="true"] {
+  background-color: var(--mantine-color-sea-3);
+  color: var(--mantine-color-white);
+}
+
+.day:hover .text-day[data-today="true"] {
+  background-color: var(--mantine-color-sea-6);
+}

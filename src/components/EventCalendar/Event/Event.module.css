@@ -1,0 +1,30 @@
+/**
+Possible event colors:
+- red-4
+- grape-4
+- indigo-4
+- sea-4
+**/
+
+.event {
+  /* background-color: var(--mantine-color-sea-2); */
+  background-color: var(--mantine-color-grape-4);
+  color: #000;
+  text-decoration: none;
+
+  grid-row: 3 / span 1;
+  grid-column: 3 / span 3;
+
+  margin: 2px 4px;
+  border-radius: 3px;
+
+  box-sizing: border-box;
+  padding: 2px 6px;
+
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.event:hover {
+  background-color: var(--mantine-color-grape-3);
+}
