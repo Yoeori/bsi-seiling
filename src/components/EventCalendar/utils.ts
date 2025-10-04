@@ -4,7 +4,7 @@ import type { Event } from "@prisma/client";
 
 export function getFirstDayOfWeek(): number {
   // @ts-ignore
-  return (new Intl.Locale(LOCALE))?.weekInfo?.firstDay ?? 1;
+  return (new Intl.Locale(LOCALE))?.getWeekInfo()?.firstDay ?? 1;
 }
 
 const numDays = (y: number, m: number) => new Date(y, m, 0).getDate();
